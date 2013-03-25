@@ -1,9 +1,19 @@
+//
+//  File.m
+//  Tovi
+//
+//  Created by ideawu on 13-3-25.
+//  Copyright (c) 2013年 udpwork.com. All rights reserved.
+//
+
+#import "File.h"
+
 @implementation File
 
 /*
-+ (bool)is_dir:(NSString *)path{
-}
-*/
+ + (bool)isDir:(NSString *)path{
+ }
+ */
 
 + (NSString *)extension:(NSString *)path{
 	return [path pathExtension];
@@ -27,4 +37,3 @@
 }
 
 @end
-
