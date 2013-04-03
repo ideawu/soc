@@ -10,10 +10,24 @@
 
 @implementation File
 
-/*
- + (bool)isDir:(NSString *)path{
- }
- */
++ (bool)isdir:(NSString *)path{
+	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+	NSString *type = [attr objectForKey:NSFileType];
+	//NSLog(@"%@ %@ %@", path, attr, type);
+	if([type compare:NSFileTypeDirectory] == NSOrderedSame){
+		return true;
+	}
+	return false;
+}
+
++ (bool)isfile:(NSString *)path{
+	NSDictionary *attr = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+	NSString *type = [attr objectForKey:NSFileType];
+	if([type compare:NSFileTypeRegular] == NSOrderedSame){
+		return true;
+	}
+	return false;
+}
 
 + (NSString *)extension:(NSString *)path{
 	return [path pathExtension];
@@ -31,6 +45,20 @@
 	NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dir error:nil];
 	return files;
 }
+
++ (NSArray *)scandir:(NSString *)dir fullpath:(BOOL)fullpath{
+	NSMutableArray *ret = [NSMutableArray array];
+	for(NSString *f in [self scandir:dir]){
+		if(fullpath){
+			NSString *s = [NSString stringWithFormat:@"%@/%@", dir, f, nil];
+			[ret addObject:s];
+		}else{
+			[ret addObject:f];
+		}
+	}
+	return ret;
+}
+
 
 + (NSArray *)glob:(NSString *)dir{
 	return nil;
