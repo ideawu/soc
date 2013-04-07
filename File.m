@@ -56,7 +56,7 @@
 			[ret addObject:f];
 		}
 	}
-	return ret;
+	return [ret sortedArrayUsingSelector:@selector(localizedStandardCompare:)];
 }
 
 
