@@ -1,4 +1,4 @@
 soc
 ===
 
-Make Objective-C simpler
+Make Objective-C core class and function simpler
