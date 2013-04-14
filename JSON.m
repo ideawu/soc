@@ -16,7 +16,7 @@ NSString *json_encode(id obj){
 	}
 	id data = [NSJSONSerialization dataWithJSONObject:obj options:0 error:nil];
 	NSError *err = nil;
-	NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	NSString *str = [[NSString alloc] initWithData:data encoding:[NSString defaultCStringEncoding]];
 	if(err){
 		return nil;
 	}
