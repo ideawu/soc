@@ -30,7 +30,7 @@ id json_decode(NSString *str){
 	str = [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 	BOOL is_primative = false;
 	unichar ch = [str characterAtIndex:0];
-	if(ch == '"' || (ch != '[' && ch != ']')){
+	if(ch == '"' || (ch != '[' && ch != '{')){
 		is_primative = true;
 		str = [NSString stringWithFormat:@"[%@]", str, nil];
 	}
