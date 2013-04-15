@@ -11,6 +11,11 @@
 NSString *html_encode(NSString *str);
 NSString *html_decode(NSString *str);
 
+NSString *urlencode(NSString *str);
+NSString *urldecode(NSString *str);
+NSString *url_encode(NSString *str);
+NSString *url_decode(NSString *str);
+
 @interface HTML : NSObject
 
 @end

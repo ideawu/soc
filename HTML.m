@@ -25,6 +25,38 @@ NSString *html_decode(NSString *str){
 	return str;
 }
 
+NSString *urlencode(NSString *str){
+	CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding([NSString defaultCStringEncoding]);
+	str = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+																	   NULL,
+																	   (CFStringRef)str,
+																	   NULL,
+																	   (CFStringRef)NULL,
+																	   cfEncoding
+																	   );
+	return str;
+}
+
+NSString *urldecode(NSString *str){
+	CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding([NSString defaultCStringEncoding]);
+	str = (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding (
+																						NULL,
+																						(CFStringRef)str,
+																						(CFStringRef)NULL,
+																						cfEncoding
+																						);
+	return str;
+}
+
+NSString *url_encode(NSString *str){
+	return urlencode(str);
+}
+
+NSString *url_decode(NSString *str){
+	return urldecode(str);
+}
+
+
 @implementation HTML
 
 @end
