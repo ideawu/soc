@@ -42,7 +42,7 @@ NSString *urldecode(NSString *str){
 	str = (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding (
 																						NULL,
 																						(CFStringRef)str,
-																						(CFStringRef)NULL,
+																						CFSTR(""),
 																						cfEncoding
 																						);
 	return str;
