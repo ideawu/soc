@@ -26,7 +26,7 @@ NSString *html_decode(NSString *str){
 }
 
 NSString *urlencode(NSString *str){
-	CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding([NSString defaultCStringEncoding]);
+	CFStringEncoding cfEncoding = kCFStringEncodingUTF8;
 	str = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
 																	   NULL,
 																	   (CFStringRef)str,
@@ -38,7 +38,7 @@ NSString *urlencode(NSString *str){
 }
 
 NSString *urldecode(NSString *str){
-	CFStringEncoding cfEncoding = CFStringConvertNSStringEncodingToEncoding([NSString defaultCStringEncoding]);
+	CFStringEncoding cfEncoding = kCFStringEncodingUTF8;
 	str = (__bridge NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding (
 																						NULL,
 																						(CFStringRef)str,
